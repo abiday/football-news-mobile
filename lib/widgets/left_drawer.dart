@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 // Import halaman-halaman yang akan dituju
+import 'package:football_news/screens/news_entry_list.dart';
 import 'package:football_news/screens/menu.dart';
 import 'package:football_news/screens/newslist_form.dart'; // [cite: 86] TODO di tutorial, sekarang di-import
 
@@ -43,30 +44,27 @@ class LeftDrawer extends StatelessWidget {
           ),
           // Bagian Routing
           ListTile(
-            leading: const Icon(Icons.home_outlined), // [cite: 90]
-            title: const Text('Home'), // [cite: 91]
+            leading: const Icon(Icons.list), // Saya ganti ikonnya
+            title: const Text('News List'),
             onTap: () {
-              // Navigasi ke halaman Home
-              Navigator.pushReplacement( // [cite: 95]
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => MyHomePage(),
-                  ));
+              // Route to news list page
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const NewsEntryListPage()),
+              );
             },
           ),
           ListTile(
-            leading: const Icon(Icons.post_add), // [cite: 102]
-            title: const Text('Add News'), // [cite: 103]
+            leading: const Icon(Icons.add_reaction_rounded),
+            title: const Text('News List'),
             onTap: () {
-              // TODO Selesai: Routing ke NewsFormPage [cite: 108, 109]
-              // Kita pakai push() agar ada tombol back di AppBar
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const NewsFormPage(),
-                  ));
+                // Route to news list page
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const NewsEntryListPage()),
+                );
             },
-          ),
+        ),
         ],
       ),
     );
